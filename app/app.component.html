@@ -1,15 +1,2 @@
-<div style="width: 850px;">
-    <ag-grid-ng2 #agGrid style="width: 100%; height: 350px;" class="ag-fresh"
-                 [gridOptions]="gridOptions"
-                 [columnDefs]="columnDefs"
-                 [rowData]="rowData"
-
-                 (cellClicked)="onCellClicked($event)"
-                 (cellDoubleClicked)="onCellDoubleClicked($event)"
-                 (cellContextMenu)="onCellContextMenu($event)"
-                 (cellFocused)="onCellFocused($event)"
-                 (selectionChanged)="onSelectionChanged()"
-                 (rowClicked)="onRowClicked($event)"
-                 (ready)="onReady($event)">
-    </ag-grid-ng2>
-</div>
+<ag-from-component></ag-from-component>
+<ag-from-template></ag-from-template>
