@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>ag-Grid Angular 2 Example</title>
+
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <link href="node_modules/ag-grid/dist/styles/ag-grid.css" rel="stylesheet" />
+    <link href="node_modules/ag-grid/dist/styles/theme-fresh.css" rel="stylesheet" />
+
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+        System.import('output').catch(function(err){ console.error(err);  });
+    </script>
+
+</head>
+
+<!-- 3. Display the application -->
+<body>
+<my-app>Loading...</my-app>
+</body>
+
+</html>
