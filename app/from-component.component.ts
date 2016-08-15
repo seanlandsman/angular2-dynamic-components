@@ -1,17 +1,22 @@
 import {Component,ViewContainerRef,Input} from '@angular/core';
 import {AgGridNg2} from 'ag-grid-ng2/main';
 import {AgGridCellRendererFactory} from 'ag-grid-ng2/main';
+import {AgGridAware} from 'ag-grid-ng2/main';
 import {GridOptions} from 'ag-grid/main';
 
 @Component({
     selector: 'square-cell',
     template: `{{valueSquared()}}`
 })
-class SquareComponent {
-    @Input() value:number;
+class SquareComponent implements AgGridAware {
+    private params:any;
+
+    setGridParameters(params:any):void {
+        this.params = params;
+    }
 
     private valueSquared():number {
-        return this.value * this.value;
+        return this.params.value * this.params.value;
     }
 }
 
@@ -19,20 +24,28 @@ class SquareComponent {
     selector: 'cube-cell',
     template: `{{valueCubed()}}`
 })
-class CubeComponent {
-    @Input() value:number;
+class CubeComponent implements AgGridAware {
+    private params:any;
+
+    setGridParameters(params:any):void {
+        this.params = params;
+    }
 
     private valueCubed():number {
-        return this.value * this.value * this.value;
+        return this.params.value * this.params.value * this.params.value;
     }
 }
 
 @Component({
     selector: 'params-cell',
-    template: `Field: {{value.colDef.field}}, Value: {{value.value}}`
+    template: `Field: {{params.colDef.field}}, Value: {{params.value}}`
 })
-class ParamsComponent {
-    @Input() value:{};
+class ParamsComponent implements AgGridAware {
+    private params:any;
+
+    setGridParameters(params:any):void {
+        this.params = params;
+    }
 }
 
 @Component({
@@ -42,25 +55,44 @@ class ParamsComponent {
     providers: [AgGridCellRendererFactory]
 })
 export class FromComponentComponent {
-
     private gridOptions:GridOptions;
-    private showGrid:boolean;
-    private rowData:any[];
-    private columnDefs:any[];
 
     // shouldn't be necessary to inject ViewContainerRef here, but if we don't the child AgGridCellRendererFactory
     // doesn't get it injected either (and an error is thrown)
     constructor(private _viewContainerRef:ViewContainerRef,
                 private agGridCellRendererFactory:AgGridCellRendererFactory) {
-        // we pass an empty gridOptions in, so we can grab the api out
+
         this.gridOptions = <GridOptions>{};
-        this.createRowData();
-        this.createColumnDefs();
-        this.showGrid = true;
+        this.gridOptions.rowData = this.createRowData();
+        this.gridOptions.columnDefs = this.createColumnDefs();
+    }
+
+    private createColumnDefs() {
+        return [
+            {headerName: "Name", field: "name", width: 200},
+            {
+                headerName: "Square Component",
+                field: "index",
+                cellRenderer: this.agGridCellRendererFactory.createCellRendererFromComponent(SquareComponent),
+                width: 200
+            },
+            {
+                headerName: "Cube Component",
+                field: "index",
+                cellRenderer: this.agGridCellRendererFactory.createCellRendererFromComponent(CubeComponent),
+                width: 200
+            },
+            {
+                headerName: "Name Params Component",
+                field: "name",
+                cellRenderer: this.agGridCellRendererFactory.createCellRendererFromComponent(ParamsComponent),
+                width: 250
+            }
+        ];
     }
 
     private createRowData() {
-        var rowData:any[] = [];
+        let rowData:any[] = [];
 
         for (var i = 0; i < 15; i++) {
             rowData.push({
@@ -71,36 +103,6 @@ export class FromComponentComponent {
             });
         }
 
-        this.rowData = rowData;
-    }
-
-    private createColumnDefs() {
-        this.columnDefs = [
-            {headerName: "Name", field: "name", width: 200},
-            {
-                headerName: "Square Component",
-                field: "index",
-                cellRenderer: this.agGridCellRendererFactory.createCellRendererFromComponent(SquareComponent, (component:SquareComponent, params:any) => {
-                    component.value = params.value;
-                }),
-                width: 200
-            },
-            {
-                headerName: "Cube Component",
-                field: "index",
-                cellRenderer: this.agGridCellRendererFactory.createCellRendererFromComponent(CubeComponent, (component:CubeComponent, params:any) => {
-                    component.value = params.value;
-                }),
-                width: 200
-            },
-            {
-                headerName: "Name Params Component",
-                field: "name",
-                cellRenderer: this.agGridCellRendererFactory.createCellRendererFromComponent(ParamsComponent, (component:ParamsComponent, params:any) => {
-                    component.value = params;
-                }),
-                width: 250
-            }
-        ];
+        return rowData;
     }
 }
