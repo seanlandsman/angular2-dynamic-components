@@ -4,11 +4,12 @@ import {AgGridCellRendererFactory} from 'ag-grid-ng2/main';
 import {GridOptions} from 'ag-grid/main';
 import {FromComponentComponent} from "./from-component.component";
 import {FromTemplateComponent} from "./from-template.component";
+import {FromRichComponent} from "./from-rich.component";
 
 @Component({
     selector: 'my-app',
     templateUrl: 'app/app.component.html',
-    directives: [FromComponentComponent, FromTemplateComponent]
+    directives: [FromComponentComponent, FromTemplateComponent, FromRichComponent]
 })
 export class AppComponent {
 }
