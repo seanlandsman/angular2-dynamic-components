@@ -1,4 +1,4 @@
-import {Component,ViewContainerRef,Input} from '@angular/core';
+import {Component,ViewContainerRef,OnDestroy} from '@angular/core';
 import {AgGridNg2} from 'ag-grid-ng2/main';
 import {AgGridCellRendererFactory} from 'ag-grid-ng2/main';
 import {AgGridAware} from 'ag-grid-ng2/main';
@@ -8,7 +8,7 @@ import {GridOptions} from 'ag-grid/main';
     selector: 'square-cell',
     template: `{{valueSquared()}}`
 })
-class SquareComponent implements AgGridAware {
+class SquareComponent implements AgGridAware, OnDestroy {
     private params:any;
 
     setGridParameters(params:any):void {
@@ -17,6 +17,10 @@ class SquareComponent implements AgGridAware {
 
     private valueSquared():number {
         return this.params.value * this.params.value;
+    }
+
+    ngOnDestroy() {
+        console.log(`Destroying SquareComponent`);
     }
 }
 
