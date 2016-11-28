@@ -1,17 +1,18 @@
 
-ag-Grid
-==============
+Angular 2 Dynamic Components
+============================
 
-Example of using ag-Grid with Angular2 and TypeScript
+Example of creating Angular 2 Components Dynamically
 
 Building
 ==============
 
+== Build ==
+
 To build:
 - `npm install`
-- `npm install tsd -g`
-- `tsd install es6-shim`
 - `npm run tsc`
 
 To Run:
 - `npm run lite`
+

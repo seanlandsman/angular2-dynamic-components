@@ -1,5 +1,10 @@
 .idea/
+*.iml
+
 node_modules/
 typings/
+
 npm-debug.log
-output/
+
+# other
+.DS_Store

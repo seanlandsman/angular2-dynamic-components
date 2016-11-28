@@ -1,0 +1,45 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'run', 'tsc' ]
+2 info using npm@3.10.9
+3 info using node@v6.9.1
+4 verbose run-script [ 'pretsc', 'tsc', 'posttsc' ]
+5 info lifecycle angular2-dynamic-components@0.0.1~pretsc: angular2-dynamic-components@0.0.1
+6 silly lifecycle angular2-dynamic-components@0.0.1~pretsc: no script for pretsc, continuing
+7 info lifecycle angular2-dynamic-components@0.0.1~tsc: angular2-dynamic-components@0.0.1
+8 verbose lifecycle angular2-dynamic-components@0.0.1~tsc: unsafe-perm in lifecycle true
+9 verbose lifecycle angular2-dynamic-components@0.0.1~tsc: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/seanlandsman/IdeaProjects/ag-grid/seanlandsman/ng2/angular2-dynamic-components/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+10 verbose lifecycle angular2-dynamic-components@0.0.1~tsc: CWD: /Users/seanlandsman/IdeaProjects/ag-grid/seanlandsman/ng2/angular2-dynamic-components
+11 silly lifecycle angular2-dynamic-components@0.0.1~tsc: Args: [ '-c', 'tsc -p tsconfig.json' ]
+12 silly lifecycle angular2-dynamic-components@0.0.1~tsc: Returned: code: 2  signal: null
+13 info lifecycle angular2-dynamic-components@0.0.1~tsc: Failed to exec tsc script
+14 verbose stack Error: angular2-dynamic-components@0.0.1 tsc: `tsc -p tsconfig.json`
+14 verbose stack Exit status 2
+14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:877:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid angular2-dynamic-components@0.0.1
+16 verbose cwd /Users/seanlandsman/IdeaProjects/ag-grid/seanlandsman/ng2/angular2-dynamic-components
+17 error Darwin 16.1.0
+18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "tsc"
+19 error node v6.9.1
+20 error npm  v3.10.9
+21 error code ELIFECYCLE
+22 error angular2-dynamic-components@0.0.1 tsc: `tsc -p tsconfig.json`
+22 error Exit status 2
+23 error Failed at the angular2-dynamic-components@0.0.1 tsc script 'tsc -p tsconfig.json'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the angular2-dynamic-components package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     tsc -p tsconfig.json
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs angular2-dynamic-components
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls angular2-dynamic-components
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
