@@ -8,7 +8,7 @@ import {GreenDynamicComponent} from "./green-dynamic.component";
     template: `
         <div class="container-fluid">
             <div class="page-header">
-                <h1>Creating Dynamic Components with Angular 2</h1>
+                <h1>Creating AOT Friendly Dynamic Components with Angular 2</h1>
             </div>
             <div class="row">
                 <div class="col-lg-12">
