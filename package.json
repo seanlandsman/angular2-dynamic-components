@@ -6,7 +6,12 @@
     "tsc": "tsc -p tsconfig.json",
     "tsc:w": "tsc -p tsconfig.json -w",
     "lite": "lite-server",
-    "start": "npm run tsc && concurrently \"npm run tsc:w\" \"npm run lite\" "
+    "start": "npm run tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+
+    "clean:aot": "rimraf aot/aot/* && rimraf aot/app/* && rimraf aot/dist/* && rimraf aot/node_modules/* && rimraf app/*.js*",
+    "build:aot": "ngc -p tsconfig-aot.json && gulp aot-bundle",
+    "lite:aot": "lite-server -c aot/bs-config.json",
+    "clean-build:aot": "npm run clean:aot && npm run build:aot"
   },
   "repository": {
     "type": "git",
@@ -46,6 +51,8 @@
     "@types/node": "^6.0.45",
     "concurrently": "^2.2.0",
     "lite-server": "^2.2.2",
-    "typescript": "2.0.2"
+    "typescript": "2.0.2",
+    "gulp": "^3.9.1",
+    "systemjs-builder": "^0.15.33"
   }
 }

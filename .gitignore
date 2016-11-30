@@ -4,6 +4,7 @@
 typings/
 
 npm-debug.log
+node_modules/
 
 # other
 .DS_Store

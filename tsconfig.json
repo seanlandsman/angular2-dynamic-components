@@ -13,6 +13,9 @@
   "compileOnSave": true,
   "exclude": [
     "node_modules/**",
-    "docs"
+    "docs",
+    "aot/*",
+    "**/*-aot.ts"
+
   ]
 }
