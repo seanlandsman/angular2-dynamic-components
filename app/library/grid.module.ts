@@ -1,13 +1,21 @@
 import {NgModule, ANALYZE_FOR_ENTRY_COMPONENTS} from "@angular/core";
+import {BrowserModule} from "@angular/platform-browser";
+import {FormsModule} from "@angular/forms";
 
-import {GridComponent} from "./grid.component";
+import {Grid} from "./grid.component";
+import {Cell} from "./cell.component";
 
 @NgModule({
+    imports: [
+        BrowserModule,
+        FormsModule
+    ],
     declarations: [
-        GridComponent
+        Grid,
+        Cell
     ],
     exports: [
-        GridComponent
+        Grid
     ]
 })
 export class GridModule {

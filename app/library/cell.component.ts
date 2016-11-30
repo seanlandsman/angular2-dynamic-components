@@ -1,20 +1,17 @@
-import {Component, Input, ViewContainerRef, ComponentFactoryResolver} from "@angular/core";
+import {Component, Input, ViewContainerRef, OnInit, ComponentFactoryResolver} from "@angular/core";
 
 @Component({
-    selector: 'grid-component',
-    template: `
-    <button (click)="addDynamicGridComponent()">Add Dynamic Grid component</button>
-    <br/>
-  `
+    selector: 'grid-cell',
+    template: ''
 })
-export class GridComponent {
+export class Cell implements OnInit {
     @Input() componentType: any;
 
     constructor(private viewContainerRef: ViewContainerRef,
                 private cfr: ComponentFactoryResolver) {
     }
 
-    addDynamicGridComponent() {
+    ngOnInit() {
         let compFactory = this.cfr.resolveComponentFactory(this.componentType);
         this.viewContainerRef.createComponent(compFactory);
     }

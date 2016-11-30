@@ -7,14 +7,12 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
-    "noImplicitAny": false,
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "noImplicitAny": true,
+    "outDir": "lib/"
   },
   "compileOnSave": true,
   "exclude": [
-    "node_modules/@types/core-js/index.d.ts",
-    "node_modules/*"
+    "node_modules/**",
+    "docs"
   ]
 }
